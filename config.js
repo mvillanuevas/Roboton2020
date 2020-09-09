@@ -7,7 +7,7 @@ module.exports = {
     DF_LANGUAGE_CODE: process.env.DF_LANGUAGE_CODE,
     GOOGLE_CLIENT_EMAIL: process.env.GOOGLE_CLIENT_EMAIL,
     GOOGLE_PRIVATE_KEY: process.env.GOOGLE_PRIVATE_KEY,
-    EMAIL_FROM: 'mvillanueva.1310@gmail.com',
-    EMAIL_TO: 'manuel.villanueva.serrano@mx.ey.com',
-    EMAIL_PASSWORD: 'tfwoghoxcgfbvsid',
+    EMAIL_FROM: process.env.EMAIL_FROM,
+    EMAIL_TO: process.env.EMAIL_TO,
+    EMAIL_PASSWORD: process.env.EMAIL_PASSWORD
 };
