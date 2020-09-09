@@ -208,7 +208,7 @@ function receivedMessage(event) {
 
 function handleMessageAttachments(messageAttachments, senderID){
     //for now just reply
-    sendTextMessage(senderID, "Attachment received. Thank you. Image");
+    sendTextMessage(senderID, "Imagen recibida, gracias");
 }
 
 function handleQuickReply(senderID, quickReply, messageId) {
@@ -261,6 +261,12 @@ function handleDialogFlowAction(sender, action, messages, contexts, parameters) 
 
 
                     sendEmail('Notificación | Nueva solicitud de empleo', emailContent);
+
+                    axios.post('https://sheetdb.io/api/v1/t2zqrhkl1ctnc',{
+                        "data": {"user_name": user_name, "phone_number": phone_number}
+                    }).then( response => {
+                      console.log(response.data);
+                    });
 
                     handleMessages(messages, sender);
 
