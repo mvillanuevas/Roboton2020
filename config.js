@@ -9,5 +9,5 @@ module.exports = {
     GOOGLE_PRIVATE_KEY: process.env.GOOGLE_PRIVATE_KEY,
     EMAIL_FROM: 'mvillanueva.1310@gmail.com',
     EMAIL_TO: 'manuel.villanueva.serrano@mx.ey.com',
-    EMAIL_PASSWORD: 'nffkenobqgyduijl',
+    EMAIL_PASSWORD: 'tfwoghoxcgfbvsid',
 };
