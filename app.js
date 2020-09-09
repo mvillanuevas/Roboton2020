@@ -208,7 +208,7 @@ function receivedMessage(event) {
 
 function handleMessageAttachments(messageAttachments, senderID){
     //for now just reply
-    sendTextMessage(senderID, "Attachment received. Thank you.");
+    sendTextMessage(senderID, "Attachment received. Thank you. Image");
 }
 
 function handleQuickReply(senderID, quickReply, messageId) {
@@ -259,17 +259,6 @@ function handleDialogFlowAction(sender, action, messages, contexts, parameters) 
                         '<br>' +
                         '<br> Recluta-bot EY';
 
-                    const data = [{
-                      user_name:user_name,
-                      job_vacancy:job_vacancy,
-                      previous_job:previous_job,
-                      years_of_experience:years_of_experience,
-                      phone_number:phone_number,
-                      mail:mail
-                    }];
-                    axios.post('https://sheet.best/api/sheets/16bee878-66ce-4511-b530-02738b687374',data);
-                    response.json({"fulfillmentText":user_name + "Attachment received"})
-                    console.log("Attachment received");
 
                     sendEmail('Notificación | Nueva solicitud de empleo', emailContent);
 
