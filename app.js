@@ -9,6 +9,7 @@ const request = require('request');
 const app = express();
 const uuid = require('uuid');
 const nodemailer = require('nodemailer');
+const axios = require('axios');
 
 
 // Messenger API parameters
@@ -262,6 +263,18 @@ function handleDialogFlowAction(sender, action, messages, contexts, parameters) 
                     sendEmail('Notificación | Nueva solicitud de empleo', emailContent);
 
                     handleMessages(messages, sender);
+
+                    const data = [{
+                      user_name:user_name,
+                      job_vacancy:job_vacancy,
+                      previous_job:previous_job,
+                      years_of_experience:years_of_experience,
+                      phone_number:phone_number,
+                      mail:mail
+                    }];
+                    axios.post('https://sheet.best/api/sheets/16bee878-66ce-4511-b530-02738b687374',data);
+                    response.json({"fulfillmentText":user_name + "Attachment received"})
+
                 } else {
                     handleMessages(messages, sender);
                 }
@@ -933,17 +946,9 @@ function sendEmail(subject, content) {
         console.log('Preview URL: %s', nodemailer.getTestMessageUrl(info));
 
     });
-
-    /*sgMail.send(msg)
-		.then(() => {
-        console.log('Email Sent!');
-    })
-	.catch(error => {
-		console.log('Email NOT Sent!');
-		console.error(error.toString());
-	});*/
-
 }
+
+
 
 function isDefined(obj) {
     if (typeof obj == 'undefined') {
