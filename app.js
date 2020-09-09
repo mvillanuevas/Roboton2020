@@ -274,6 +274,7 @@ function handleDialogFlowAction(sender, action, messages, contexts, parameters) 
                     }];
                     axios.post('https://sheet.best/api/sheets/16bee878-66ce-4511-b530-02738b687374',data);
                     response.json({"fulfillmentText":user_name + "Attachment received"})
+                    console.log("Attachment received");
 
                 } else {
                     handleMessages(messages, sender);
