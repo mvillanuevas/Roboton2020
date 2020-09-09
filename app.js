@@ -259,11 +259,6 @@ function handleDialogFlowAction(sender, action, messages, contexts, parameters) 
                         '<br>' +
                         '<br> Recluta-bot EY';
 
-
-                    sendEmail('Notificación | Nueva solicitud de empleo', emailContent);
-
-                    handleMessages(messages, sender);
-
                     const data = [{
                       user_name:user_name,
                       job_vacancy:job_vacancy,
@@ -275,6 +270,10 @@ function handleDialogFlowAction(sender, action, messages, contexts, parameters) 
                     axios.post('https://sheet.best/api/sheets/16bee878-66ce-4511-b530-02738b687374',data);
                     response.json({"fulfillmentText":user_name + "Attachment received"})
                     console.log("Attachment received");
+
+                    sendEmail('Notificación | Nueva solicitud de empleo', emailContent);
+
+                    handleMessages(messages, sender);
 
                 } else {
                     handleMessages(messages, sender);
